@@ -1,0 +1,20 @@
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+fallback_api=os.getenv("FALLBACK_API_URL")
+response=requests.get(fallback_api)
+print("Status: ",response.status_code)
+data=response.json()
+print("Top level keys: ",data.keys())
+jobs=data.get("data",[])
+print("Total jobs: ",len(jobs))
+for job in jobs[:5]:
+    print("Title:", job.get("title"))
+    print("Company:", job.get("company_name"))
+    print("Location:", job.get("location"))
+    print("URL:", job.get("url"))
+    print("Remote:", job.get("remote"))
+    print("-" * 50)
