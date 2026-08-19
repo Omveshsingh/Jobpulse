@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const API_URL = "http://127.0.0.1:8000/api/jobs";
+const API_URL = "https://jobpulse-hmnz.onrender.com/api/jobs";
 
 function App() {
   const [jobs, setJobs] = useState([]);
